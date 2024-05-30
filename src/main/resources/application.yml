@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/cards
+    username: postgres
+    password: localdb
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+
+
+# docker pull postgres
+# docker run -d -e POSTGRES_PASSWORD=localdb -p 5432:5432 --name local_postgres postgres

@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - includeAll:
+      path: liquibase/1.0
+
+
+# ALTER SEQUENCE companies_id_seq RESTART WITH 1;

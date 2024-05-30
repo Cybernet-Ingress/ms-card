@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create cards table
+      author: Rovshan Huseynov
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pan
+                  type: varchar(16)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: card_holder
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(100)
+                  defaultValue: 'Active'
+                  constraints:
+                    nullable: false
+              - column:
+                  name: used_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+          remarks: Table to store information about cards
