@@ -2,6 +2,7 @@ package com.example.mscard.service.concrete;
 
 import com.example.mscard.dao.entity.CardEntity;
 import com.example.mscard.dao.repository.CardRepository;
+import com.example.mscard.model.enums.CardStatus;
 import com.example.mscard.model.request.CardRequestDto;
 import com.example.mscard.model.response.CardResponseDto;
 import com.example.mscard.service.abstraction.CardService;
@@ -10,8 +11,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.example.mscard.mapper.CardMapper.CARD_MAPPER;
 
@@ -22,17 +23,16 @@ public class CardServiceImpl implements CardService {
     CardRepository cardRepository;
 
     @Override
-    public CardEntity createCard(String userId, CardRequestDto requestDto){
+    public CardEntity createCard(Long userId, CardRequestDto requestDto){
         CardEntity newCard = CARD_MAPPER.buildCardEntity(userId, requestDto);
         return cardRepository.save(newCard);
     }
 
     @Override
-    public List<CardResponseDto> getCardsByUsedId(String userId){
-        List<CardResponseDto> listCards = new ArrayList<>();
-        listCards.add(CardResponseDto.builder().pan("1").fullName("Rovshan").build());
-        listCards.add(CardResponseDto.builder().pan("2").fullName("Kamil").build());
-        System.out.println("Cards for userId: " + userId + " are following: " + listCards);
-        return listCards;
+    public List<CardResponseDto> getCardsByUsedId(Long userId){
+        List<CardEntity> allByUserId = cardRepository.findAllByUserIdAndStatus(userId, CardStatus.ACTIVE);
+        return allByUserId.stream()
+                .map(CARD_MAPPER::toCardRequestDto)
+                .collect(Collectors.toList());
     }
 }

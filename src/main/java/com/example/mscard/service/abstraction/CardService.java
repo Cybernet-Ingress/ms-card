@@ -7,7 +7,7 @@ import com.example.mscard.model.response.CardResponseDto;
 import java.util.List;
 
 public interface CardService {
-    CardEntity createCard(String userId, CardRequestDto requestDto);
+    CardEntity createCard(Long userId, CardRequestDto requestDto);
 
-    List<CardResponseDto> getCardsByUsedId(String userId);
+    List<CardResponseDto> getCardsByUsedId(Long userId);
 }

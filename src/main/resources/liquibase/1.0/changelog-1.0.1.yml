@@ -14,7 +14,7 @@ databaseChangeLog:
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (3, '4203832138340279', 'John Wilson', 125.21, 'PREPAID', 'AMERICAN', 'ACTIVE', 6);
+              VALUES (3, '4203832138340279', 'John Wilson', 125.21, 'PREPAID', 'AMERICAN', 'DELETED', 6);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
@@ -22,7 +22,7 @@ databaseChangeLog:
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (5, '4203832122645037', 'Katie Williams', 189.83, 'CREDIT', 'AMERICAN', 'ACTIVE', 4);
+              VALUES (5, '4203832122645037', 'Katie Williams', 189.83, 'CREDIT', 'AMERICAN', 'DELETED', 4);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
@@ -30,15 +30,15 @@ databaseChangeLog:
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (7, '4203832195096031', 'David Brown', 127.92, 'DEBIT', 'EXPRESS', 'ACTIVE', 10);
+              VALUES (7, '4203832195096031', 'David Brown', 127.92, 'DEBIT', 'EXPRESS', 'STOLEN', 10);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (8, '4203832133948263', 'Katie Williams', 178.73, 'CREDIT', 'MAESTRO', 'ACTIVE', 3);
+              VALUES (8, '4203832133948263', 'Katie Williams', 178.73, 'CREDIT', 'MAESTRO', 'BLOCKED', 3);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (9, '4203832144879196', 'Sarah Jones', 17.06, 'DEBIT', 'DISCOVER', 'ACTIVE', 10);
+              VALUES (9, '4203832144879196', 'Sarah Jones', 17.06, 'DEBIT', 'DISCOVER', 'BLOCKED', 10);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
@@ -50,7 +50,7 @@ databaseChangeLog:
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (12, '4203832158162890', 'Alex Taylor', 107.06, 'GIFT', 'VISA', 'ACTIVE', 5);
+              VALUES (12, '4203832158162890', 'Alex Taylor', 107.06, 'GIFT', 'VISA', 'STOLEN', 5);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
@@ -98,7 +98,7 @@ databaseChangeLog:
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
-              VALUES (24, '4203832143566024', 'Chris Smith', 51.13, 'CREDIT', 'VISA', 'ACTIVE', 10);
+              VALUES (24, '4203832143566024', 'Chris Smith', 51.13, 'CREDIT', 'VISA', 'DELETED', 10);
         - sql:
             sql: |
               INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)

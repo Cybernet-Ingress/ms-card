@@ -31,12 +31,13 @@ public class CardController {
      */
     @PostMapping("/{userId}")
     @ResponseStatus(CREATED)
-    public CardEntity createCard(@PathVariable String userId, @RequestBody CardRequestDto requestDto){
+    public CardEntity createCard(@PathVariable Long userId, @RequestBody CardRequestDto requestDto){
         return cardService.createCard(userId, requestDto);
     }
 
+    // http://localhost:8080/api/v1/cards/1
     @GetMapping("/{userId}")
-    public List<CardResponseDto> getCardsByUsedId(@PathVariable String userId){
+    public List<CardResponseDto> getCardsByUsedId(@PathVariable Long userId){
         return cardService.getCardsByUsedId(userId);
     }
 }
