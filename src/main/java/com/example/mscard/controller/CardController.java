@@ -24,7 +24,9 @@ public class CardController {
     URL: http://localhost:8080/api/v1/cards/2
     {
     "pan":"1234567812345678",
-    "cardHolder" : "Rovshan Huseynov"
+    "cardHolder" : "Alim Qasimov",
+    "type" : "DEBIT",
+    "brand" : "VISA"
     }
      */
     @PostMapping("/{userId}")

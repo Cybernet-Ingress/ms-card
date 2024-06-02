@@ -1,0 +1,245 @@
+databaseChangeLog:
+  - changeSet:
+      id: Insert test cards into cards table
+      author: Rovshan Huseynov
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (1, '4203832145087131', 'Chris Brown', 80.77, 'DEBIT', 'MASTERCARD', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (2, '4203832130173481', 'Michael Wilson', 91.97, 'GIFT', 'VISA', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (3, '4203832138340279', 'John Wilson', 125.21, 'PREPAID', 'AMERICAN', 'ACTIVE', 6);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (4, '4203832181645037', 'Jane Williams', 28.76, 'GIFT', 'AMERICAN', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (5, '4203832122645037', 'Katie Williams', 189.83, 'CREDIT', 'AMERICAN', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (6, '4203832169131917', 'David Williams', 118.65, 'GIFT', 'VISA', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (7, '4203832195096031', 'David Brown', 127.92, 'DEBIT', 'EXPRESS', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (8, '4203832133948263', 'Katie Williams', 178.73, 'CREDIT', 'MAESTRO', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (9, '4203832144879196', 'Sarah Jones', 17.06, 'DEBIT', 'DISCOVER', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (10, '4203832156736527', 'John Brown', 132.97, 'GIFT', 'DISCOVER', 'ACTIVE', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (11, '4203832149109334', 'John Miller', 123.26, 'CREDIT', 'MAESTRO', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (12, '4203832158162890', 'Alex Taylor', 107.06, 'GIFT', 'VISA', 'ACTIVE', 5);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (13, '4203832142066030', 'David Davis', 138.32, 'PREPAID', 'AMERICAN', 'ACTIVE', 1);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (14, '4203832173163742', 'Jane Williams', 25.79, 'VIRTUAL', 'AMERICAN', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (15, '4203832149477501', 'Michael Brown', 58.95, 'GIFT', 'DISCOVER', 'ACTIVE', 6);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (16, '4203832196092013', 'Michael Williams', 143.31, 'PREPAID', 'AMERICAN', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (17, '4203832189222445', 'Sarah Wilson', 98.02, 'GIFT', 'MAESTRO', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (18, '4203832152280610', 'Katie Wilson', 199.96, 'VIRTUAL', 'MAESTRO', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (19, '4203832164552928', 'David Miller', 23.94, 'VIRTUAL', 'MASTERCARD', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (20, '4203832131491457', 'David Brown', 125.08, 'GIFT', 'VISA', 'ACTIVE', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (21, '4203832157142259', 'Sarah Jones', 174.30, 'VIRTUAL', 'MAESTRO', 'ACTIVE', 5);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (22, '4203832121734253', 'Sarah Moore', 138.20, 'PREPAID', 'MASTERCARD', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (23, '4203832160763409', 'Jane Brown', 5.86, 'PREPAID', 'MAESTRO', 'ACTIVE', 1);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (24, '4203832143566024', 'Chris Smith', 51.13, 'CREDIT', 'VISA', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (25, '4203832110476629', 'John Davis', 148.70, 'PREPAID', 'DISCOVER', 'ACTIVE', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (26, '4203832135113423', 'Laura Brown', 168.60, 'DEBIT', 'MASTERCARD', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (27, '4203832165671327', 'Jane Davis', 93.66, 'GIFT', 'AMERICAN', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (28, '4203832113396141', 'Jane Moore', 198.23, 'VIRTUAL', 'MAESTRO', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (29, '4203832161412919', 'Laura Smith', 108.33, 'GIFT', 'AMERICAN', 'ACTIVE', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (30, '4203832157560141', 'Alex Smith', 195.29, 'CREDIT', 'AMERICAN', 'ACTIVE', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (31, '4203832199858532', 'David Johnson', 28.36, 'VIRTUAL', 'MASTERCARD', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (32, '4203832125463273', 'Michael Davis', 98.43, 'DEBIT', 'EXPRESS', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (33, '4203832148378899', 'John Moore', 199.91, 'DEBIT', 'MASTERCARD', 'ACTIVE', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (34, '4203832116635274', 'Chris Wilson', 99.63, 'DEBIT', 'VISA', 'ACTIVE', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (35, '4203832193510416', 'John Wilson', 20.69, 'VIRTUAL', 'AMERICAN', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (36, '4203832167996212', 'Sarah Smith', 6.95, 'PREPAID', 'EXPRESS', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (37, '4203832171470966', 'Jane Miller', 64.10, 'DEBIT', 'MASTERCARD', 'ACTIVE', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (38, '4203832129012827', 'David Moore', 157.10, 'PREPAID', 'MASTERCARD', 'ACTIVE', 1);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (39, '4203832184230793', 'Chris Smith', 55.05, 'VIRTUAL', 'DISCOVER', 'ACTIVE', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (40, '4203832148727042', 'Sarah Wilson', 20.02, 'DEBIT', 'EXPRESS', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (41, '4203832177601378', 'Jane Miller', 115.05, 'CREDIT', 'MASTERCARD', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (42, '4203832129219662', 'Chris Smith', 73.46, 'DEBIT', 'VISA', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (43, '4203832159414798', 'Laura Miller', 189.63, 'DEBIT', 'EXPRESS', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (44, '4203832194726816', 'John Miller', 107.30, 'GIFT', 'VISA', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (45, '4203832160952007', 'Sarah Miller', 60.70, 'VIRTUAL', 'AMERICAN', 'ACTIVE', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (46, '4203832139211225', 'Jane Wilson', 134.54, 'CREDIT', 'EXPRESS', 'ACTIVE', 5);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (47, '4203832177716775', 'Jane Miller', 129.17, 'DEBIT', 'DISCOVER', 'ACTIVE', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (48, '4203832121865727', 'Michael Miller', 180.11, 'DEBIT', 'AMERICAN', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (49, '4203832151098562', 'Katie Smith', 44.32, 'PREPAID', 'MAESTRO', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (50, '4203832160529978', 'David Jones', 104.17, 'VIRTUAL', 'VISA', 'ACTIVE', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (51, '4203832195554490', 'Chris Moore', 130.04, 'DEBIT', 'AMERICAN', 'ACTIVE', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (52, '4203832148212509', 'John Williams', 131.08, 'PREPAID', 'DISCOVER', 'ACTIVE', 6);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (53, '4203832161216645', 'Sarah Williams', 35.87, 'VIRTUAL', 'VISA', 'ACTIVE', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (54, '4203832194314987', 'Alex Wilson', 11.51, 'DEBIT', 'MASTERCARD', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (55, '4203832142967738', 'Chris Brown', 156.96, 'PREPAID', 'EXPRESS', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (56, '4203832116691727', 'Chris Miller', 150.81, 'VIRTUAL', 'VISA', 'ACTIVE', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (57, '4203832154126417', 'Alex Williams', 189.66, 'CREDIT', 'VISA', 'ACTIVE', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (58, '4203832114295359', 'Jane Brown', 31.38, 'VIRTUAL', 'VISA', 'ACTIVE', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (59, '4203832121632505', 'Sarah Johnson', 65.87, 'GIFT', 'MASTERCARD', 'ACTIVE', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, status, user_id)
+              VALUES (60, '4203832129481262', 'Emily Davis', 153.88, 'GIFT', 'MAESTRO', 'ACTIVE', 7);

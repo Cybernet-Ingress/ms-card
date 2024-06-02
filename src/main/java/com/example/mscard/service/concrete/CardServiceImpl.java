@@ -21,11 +21,13 @@ import static com.example.mscard.mapper.CardMapper.CARD_MAPPER;
 public class CardServiceImpl implements CardService {
     CardRepository cardRepository;
 
+    @Override
     public CardEntity createCard(String userId, CardRequestDto requestDto){
         CardEntity newCard = CARD_MAPPER.buildCardEntity(userId, requestDto);
         return cardRepository.save(newCard);
     }
 
+    @Override
     public List<CardResponseDto> getCardsByUsedId(String userId){
         List<CardResponseDto> listCards = new ArrayList<>();
         listCards.add(CardResponseDto.builder().pan("1").fullName("Rovshan").build());
