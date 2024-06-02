@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/cards
+    url: jdbc:postgresql://localhost:5432/mscards
     username: postgres
     password: localdb
   jpa:
@@ -14,4 +14,4 @@ spring:
 
 
 # docker pull postgres
-# docker run -d -e POSTGRES_PASSWORD=localdb -p 5432:5432 --name local_postgres postgres
+# docker run -d -e POSTGRES_PASSWORD=localdb -p 5432:5432 --name my_local_postgres postgres

@@ -13,6 +13,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Table(name = "cards")
+@ToString
 @Builder
 public class CardEntity {
     @Id
@@ -25,5 +26,5 @@ public class CardEntity {
     @Enumerated(STRING)
     private CardStatus status;
 
-    private Long usedId;
+    private Long userId;
 }
