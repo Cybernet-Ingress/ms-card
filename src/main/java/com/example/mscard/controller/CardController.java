@@ -4,6 +4,7 @@ import com.example.mscard.dao.entity.CardEntity;
 import com.example.mscard.model.request.CardRequestDto;
 import com.example.mscard.model.response.CardResponseDto;
 import com.example.mscard.service.abstraction.CardService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -31,7 +32,7 @@ public class CardController {
      */
     @PostMapping("/{userId}")
     @ResponseStatus(CREATED)
-    public CardEntity createCard(@PathVariable Long userId, @RequestBody CardRequestDto requestDto){
+    public CardEntity createCard(@PathVariable Long userId, @Valid @RequestBody CardRequestDto requestDto){
         return cardService.createCard(userId, requestDto);
     }
 
