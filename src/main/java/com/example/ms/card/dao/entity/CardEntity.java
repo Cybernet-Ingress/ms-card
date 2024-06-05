@@ -1,0 +1,74 @@
+package com.example.ms.card.dao.entity;
+
+import com.example.ms.card.model.enums.CardBrand;
+import com.example.ms.card.model.enums.CardStatus;
+import com.example.ms.card.model.enums.CardType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+import static jakarta.persistence.EnumType.STRING;
+import static jakarta.persistence.GenerationType.IDENTITY;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "cards")
+@ToString
+@Builder
+public class CardEntity {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    private String pan;
+
+    //@Column(name = "card_holder")
+    private String cardHolder;
+
+    private BigDecimal balance;
+
+    @Enumerated(STRING)
+    private CardType type;
+
+    @Enumerated(STRING)
+    private CardBrand brand;
+
+    //@Column(name = "insert_date")
+    private LocalDateTime insertDate;
+
+    @Enumerated(STRING)
+    private CardStatus status;
+
+    //@Column(name = "update_date")
+    private LocalDateTime updateDate;
+
+    private Long userId;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CardEntity that = (CardEntity) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}

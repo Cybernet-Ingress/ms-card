@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: Update Card Sequence
+      id: Update Starting Point of Card Sequence
       author: Rovshan Huseynov
       changes:
         - sql:

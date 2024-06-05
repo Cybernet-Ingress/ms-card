@@ -27,7 +27,7 @@ databaseChangeLog:
               - column:
                   name: balance
                   type: numeric(16,2)
-                  #defaultValue: 0
+                  defaultValue: '0.00'
                   constraints:
                     nullable: false
               - column:
@@ -41,11 +41,25 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: status
-                  type: varchar(100)
-                  #defaultValue: 'Active'
+                  name: insert_date
+                  type: timestamp
+                  defaultValue:  now()
                   constraints:
                     nullable: false
+                  remarks: insertion time of a card
+              - column:
+                  name: status
+                  type: varchar(100)
+                  defaultValue: 'Active'
+                  constraints:
+                    nullable: false
+              - column:
+                  name: update_date
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: update time of a card
               - column:
                   name: user_id
                   type: bigint

@@ -11,7 +11,3 @@ spring:
       ddl-auto: validate
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
-
-
-# docker pull postgres
-# docker run -d -e POSTGRES_PASSWORD=localdb -p 5432:5432 --name my_local_postgres postgres
