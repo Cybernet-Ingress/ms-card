@@ -7,17 +7,20 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Aspect
 @Component
 @Slf4j
-public class ElapsedTimeLogger {
+public class DtoLogger {
     @SneakyThrows
-    @Around("@annotation(com.example.ms.card.aspect.annotation.LogExecutionTime)")
+    @Around("@annotation(com.example.ms.card.aspect.annotation.LogDto)")
     public Object elapsedTimeLogger(ProceedingJoinPoint jp){
-        long startDate = System.currentTimeMillis();
+        Object[] args = jp.getArgs();
+        String methodName = jp.getSignature().getName();
+        log.info(">> requestDto of {}() is {}", methodName, Arrays.toString(args));
         var result = jp.proceed();
-        long endDate = System.currentTimeMillis();
-        log.info("ActionLog.elapsedTimeLogger {} executed in {} ms", jp.getSignature(), endDate - startDate);
+        log.info("<< responseDto of {}() is {}", jp.getSignature().getName(), result);
         return result;
     }
 }

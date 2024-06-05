@@ -1,4 +1,4 @@
-package com.example.ms.card.annotation;
+package com.example.ms.card.aspect.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

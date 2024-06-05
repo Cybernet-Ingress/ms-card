@@ -1,6 +1,7 @@
 package com.example.ms.card.service.concrete;
 
-import com.example.ms.card.annotation.LogExecutionTime;
+import com.example.ms.card.aspect.annotation.LogDto;
+import com.example.ms.card.aspect.annotation.LogExecutionTime;
 import com.example.ms.card.dao.entity.CardEntity;
 import com.example.ms.card.dao.repository.CardRepository;
 import com.example.ms.card.exception.NotFoundException;
@@ -27,6 +28,7 @@ import static com.example.ms.card.mapper.CardMapper.CARD_MAPPER;
 public class CardServiceImpl implements CardService {
     CardRepository cardRepository;
 
+    @LogDto
     @Override
     public CardResponseDto createCard(Long userId, CardRequestDto requestDto){
         var newCardEntity = CARD_MAPPER.buildCardEntity(userId, requestDto);
@@ -34,12 +36,14 @@ public class CardServiceImpl implements CardService {
         return CARD_MAPPER.toCardResponseDto(newCardEntity);
     }
 
+    @LogDto
     @Override
     public CardResponseDto getCardById(Long id){
         var cardEntity = fetchCardIfExists(id);
         return CARD_MAPPER.toCardResponseDto(cardEntity);
     }
 
+    @LogDto
     @LogExecutionTime
     @Override
     public List<CardResponseDto> getCardsByUsedId(Long userId){
@@ -49,6 +53,7 @@ public class CardServiceImpl implements CardService {
                 .collect(Collectors.toList());
     }
 
+    @LogDto
     @Override
     public void deleteCardById(Long id){
         var cardEntity = fetchCardIfExists(id);
