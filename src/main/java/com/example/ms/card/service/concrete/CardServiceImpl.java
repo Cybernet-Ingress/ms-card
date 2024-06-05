@@ -2,6 +2,7 @@ package com.example.ms.card.service.concrete;
 
 import com.example.ms.card.aspect.annotation.LogDto;
 import com.example.ms.card.aspect.annotation.LogExecutionTime;
+import com.example.ms.card.client.UserClient;
 import com.example.ms.card.dao.entity.CardEntity;
 import com.example.ms.card.dao.repository.CardRepository;
 import com.example.ms.card.exception.NotFoundException;
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
 
 import static com.example.ms.card.exception.ExceptionConstants.CARD_NOT_FOUND_CODE;
 import static com.example.ms.card.exception.ExceptionConstants.CARD_NOT_FOUND_MESSAGE;
+import static com.example.ms.card.exception.ExceptionConstants.USER_NOT_FOUND_CODE;
+import static com.example.ms.card.exception.ExceptionConstants.USER_NOT_FOUND_MESSAGE;
 import static com.example.ms.card.mapper.CardMapper.CARD_MAPPER;
 
 @Service
@@ -27,10 +30,15 @@ import static com.example.ms.card.mapper.CardMapper.CARD_MAPPER;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class CardServiceImpl implements CardService {
     CardRepository cardRepository;
+    UserClient userClient;
 
     @LogDto
     @Override
     public CardResponseDto createCard(Long userId, CardRequestDto requestDto){
+        if(!userClient.getUser(userId)){
+            throw new NotFoundException(USER_NOT_FOUND_CODE, String.format(USER_NOT_FOUND_MESSAGE, userId));
+        }
+
         var newCardEntity = CARD_MAPPER.buildCardEntity(userId, requestDto);
         cardRepository.save(newCardEntity);
         return CARD_MAPPER.toCardResponseDto(newCardEntity);
@@ -47,6 +55,10 @@ public class CardServiceImpl implements CardService {
     @LogExecutionTime
     @Override
     public List<CardResponseDto> getCardsByUsedId(Long userId){
+        if(!userClient.getUser(userId)){
+            throw new NotFoundException(USER_NOT_FOUND_CODE, String.format(USER_NOT_FOUND_MESSAGE, userId));
+        }
+
         var listCards = cardRepository.findAllByUserIdAndStatus(userId, CardStatus.ACTIVE);
         return listCards.stream()
                 .map(CARD_MAPPER::toCardResponseDto)

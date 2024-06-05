@@ -8,4 +8,8 @@ public interface ExceptionConstants {
     String CARD_NOT_FOUND_CODE = "CARD_NOT_FOUND";
 
     String CARD_NOT_FOUND_MESSAGE = "Card with id: %s not found";
+
+    String USER_NOT_FOUND_CODE = "USER_NOT_FOUND";
+
+    String USER_NOT_FOUND_MESSAGE = "User with id: %s not found";
 }

@@ -5,8 +5,15 @@ spring:
     username: ${db_username}
     password: ${db_password}
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    #database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: validate
+    open-in-view : false
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
+
+# feignClient
+ms:
+  user:
+    base:
+      url: ${ms_user_base_url}
