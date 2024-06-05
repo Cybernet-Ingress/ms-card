@@ -37,7 +37,6 @@ public class CardEntity {
 
     private String pan;
 
-    //@Column(name = "card_holder")
     private String cardHolder;
 
     private BigDecimal balance;
@@ -48,13 +47,11 @@ public class CardEntity {
     @Enumerated(STRING)
     private CardBrand brand;
 
-    //@Column(name = "insert_date")
     private LocalDateTime insertDate;
 
     @Enumerated(STRING)
     private CardStatus status;
 
-    //@Column(name = "update_date")
     private LocalDateTime updateDate;
 
     private Long userId;

@@ -10,7 +10,11 @@ public interface CardService {
 
     CardResponseDto getCardById(Long id);
 
-    List<CardResponseDto> getCardsByUsedId(Long userId);
+    List<CardResponseDto> getCardsByUserId(Long userId);
 
     void deleteCardById(Long id);
+
+    void updateStolenCard(Long id);
+
+    void updateBlockedCard(Long id);
 }

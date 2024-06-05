@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,13 +41,25 @@ public class CardController {
     }
 
     @GetMapping("/user/{userId}")
-    public List<CardResponseDto> getCardsByUsedId(@PathVariable Long userId){
-        return cardService.getCardsByUsedId(userId);
+    public List<CardResponseDto> getCardsByUserId(@PathVariable Long userId){
+        return cardService.getCardsByUserId(userId);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
     public void deleteCardById(@PathVariable Long id){
         cardService.deleteCardById(id);
+    }
+
+    @PatchMapping("/stolen/{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void updateStolenCard(@PathVariable Long id){
+        cardService.updateStolenCard(id);
+    }
+
+    @PatchMapping("/block/{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void updateBlockedCard(@PathVariable Long id){
+        cardService.updateBlockedCard(id);
     }
 }
