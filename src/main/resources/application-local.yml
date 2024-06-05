@@ -11,9 +11,12 @@ spring:
   jpa:
     show-sql: true
 
-#  uncomment here when ms-user API is ready. else use mock
-# feignClient
-#ms:
-#  user:
-#    base:
-#      url: http://localhost:9092/internal/api/v1/users
+redis:
+  server:
+    urls: redis://localhost:6379
+
+#feignClient
+ms:
+  user:
+    base:
+      url: http://localhost:9092/internal/api/v1/users

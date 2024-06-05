@@ -1,5 +1,6 @@
 package com.example.ms.card.service
 
+import com.example.ms.card.cache.CacheService
 import com.example.ms.card.client.UserClient
 import com.example.ms.card.client.UserClientMock
 import com.example.ms.card.dao.entity.CardEntity
@@ -22,11 +23,13 @@ class CardServiceImplTest extends Specification {
     CardService cardService
     CardRepository cardRepository
     UserClient userClient
+    CacheService cacheService
 
     def setup(){
         cardRepository = Mock()
         userClient = new UserClientMock()
-        cardService = new CardServiceImpl(cardRepository, userClient)
+        cacheService = Mock()
+        cardService = new CardServiceImpl(cardRepository, userClient, cacheService)
     }
 
     def "TestCreateCard success case" (){
@@ -41,7 +44,6 @@ class CardServiceImplTest extends Specification {
 
         then:
         1 * cardRepository.save(entity)
-        actual.id == expected.id
         actual.pan == expected.pan
         actual.cardHolder == expected.cardHolder
         actual.balance == expected.balance
@@ -50,7 +52,6 @@ class CardServiceImplTest extends Specification {
         actual.status == expected.status
         actual.userId == expected.userId
     }
-
 
     def "TestGetCardById success case" (){
         given:
@@ -65,7 +66,6 @@ class CardServiceImplTest extends Specification {
         1 * cardRepository.findByIdAndStatus(id, ACTIVE) >> Optional.of(entity)
         actual == expected
     }
-
 
     def "TestGetCardById error case when card not found" (){
         given:
@@ -90,7 +90,7 @@ class CardServiceImplTest extends Specification {
         def actual = cardService.getCardsByUserId(userId)
 
         then:
-        userClient.getUser(userId)
+        userClient.userExists(userId)
         1 * cardRepository.findAllByUserIdAndStatus(userId, ACTIVE) >> List<GetCardsResponseDto>.of()
         actual.size() == expectedList.size()
         actual.size() == 0

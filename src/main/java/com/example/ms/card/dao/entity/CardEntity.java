@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -30,7 +31,9 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Table(name = "cards")
 @ToString
 @Builder
-public class CardEntity {
+public class CardEntity implements Serializable {
+    private static final long serialVersionUID  = 8049606725L;
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;

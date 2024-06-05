@@ -12,6 +12,10 @@ spring:
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
 
+redis:
+  server:
+    urls: ${redis.url}
+
 # feignClient
 ms:
   user:

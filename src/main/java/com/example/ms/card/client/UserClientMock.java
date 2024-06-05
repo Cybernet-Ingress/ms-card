@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Profile("local")
 public class UserClientMock implements UserClient{
     @Override
-    public boolean getUser(Long userId) {
+    public boolean userExists(Long userId) {
         return true;
     }
 }

@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Profile("!local")
 public interface UserClient {
     @GetMapping("/{userId}")
-    boolean getUser(@PathVariable Long userId);
+    boolean userExists(@PathVariable Long userId);
 }
