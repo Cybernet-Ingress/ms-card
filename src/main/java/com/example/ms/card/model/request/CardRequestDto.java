@@ -8,22 +8,30 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
+import static com.example.ms.card.exception.FieldExceptionConstants.CARD_PAN_16_DIGITS_ONLY;
+import static com.example.ms.card.exception.FieldExceptionConstants.INVALID_CARD_BRAND;
+import static com.example.ms.card.exception.FieldExceptionConstants.INVALID_CARD_HOLDER;
+import static com.example.ms.card.exception.FieldExceptionConstants.INVALID_CARD_TYPE;
+import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldDefaults(level = PRIVATE)
 public class CardRequestDto {
 
-    @Pattern(regexp="\\d{16}", message = "card pan number must contains 16 digits only")
-    private String pan;
+    @Pattern(regexp="\\d{16}", message = CARD_PAN_16_DIGITS_ONLY)
+    String pan;
 
-    @NotNull(message = "card holder may not be null")
-    private String cardHolder;
+    @NotNull(message = INVALID_CARD_HOLDER)
+    String cardHolder;
 
-    @NotNull(message = "card type may not be null")
-    private CardType type;
+    @NotNull(message = INVALID_CARD_TYPE)
+    CardType type;
 
-    @NotNull(message = "card brand may not be null")
-    private CardBrand brand;
+    @NotNull(message = INVALID_CARD_BRAND)
+    CardBrand brand;
 }
