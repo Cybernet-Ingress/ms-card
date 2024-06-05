@@ -6,7 +6,6 @@ import com.example.ms.card.client.UserClient;
 import com.example.ms.card.dao.entity.CardEntity;
 import com.example.ms.card.dao.repository.CardRepository;
 import com.example.ms.card.exception.NotFoundException;
-import com.example.ms.card.model.enums.CardStatus;
 import com.example.ms.card.model.request.CardRequestDto;
 import com.example.ms.card.model.response.CardResponseDto;
 import com.example.ms.card.service.abstraction.CardService;
@@ -24,6 +23,8 @@ import static com.example.ms.card.exception.ExceptionConstants.CARD_NOT_FOUND_ME
 import static com.example.ms.card.exception.ExceptionConstants.USER_NOT_FOUND_CODE;
 import static com.example.ms.card.exception.ExceptionConstants.USER_NOT_FOUND_MESSAGE;
 import static com.example.ms.card.mapper.CardMapper.CARD_MAPPER;
+import static com.example.ms.card.model.enums.CardStatus.ACTIVE;
+import static com.example.ms.card.model.enums.CardStatus.DELETED;
 
 @Service
 @RequiredArgsConstructor
@@ -59,7 +60,7 @@ public class CardServiceImpl implements CardService {
             throw new NotFoundException(USER_NOT_FOUND_CODE, String.format(USER_NOT_FOUND_MESSAGE, userId));
         }
 
-        var listCards = cardRepository.findAllByUserIdAndStatus(userId, CardStatus.ACTIVE);
+        var listCards = cardRepository.findAllByUserIdAndStatus(userId, ACTIVE);
         return listCards.stream()
                 .map(CARD_MAPPER::toCardResponseDto)
                 .collect(Collectors.toList());
@@ -69,13 +70,13 @@ public class CardServiceImpl implements CardService {
     @Override
     public void deleteCardById(Long id){
         var cardEntity = fetchCardIfExists(id);
-        cardEntity.setStatus(CardStatus.DELETED);
+        cardEntity.setStatus(DELETED);
         cardEntity.setUpdateDate(LocalDateTime.now());
         cardRepository.save(cardEntity);
     }
 
     private CardEntity fetchCardIfExists(Long id){
-        return cardRepository.findByIdAndStatus(id, CardStatus.ACTIVE)
+        return cardRepository.findByIdAndStatus(id, ACTIVE)
                 .orElseThrow(() -> new NotFoundException(CARD_NOT_FOUND_CODE, String.format(CARD_NOT_FOUND_MESSAGE, id)));
     }
 }
