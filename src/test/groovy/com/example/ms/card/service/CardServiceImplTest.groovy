@@ -4,6 +4,7 @@ import com.example.ms.card.client.UserClient
 import com.example.ms.card.client.UserClientMock
 import com.example.ms.card.dao.entity.CardEntity
 import com.example.ms.card.dao.repository.CardRepository
+import com.example.ms.card.exception.NotFoundException
 import com.example.ms.card.model.request.CardRequestDto
 import com.example.ms.card.service.abstraction.CardService
 import com.example.ms.card.service.concrete.CardServiceImpl
@@ -11,6 +12,7 @@ import io.github.benas.randombeans.EnhancedRandomBuilder
 import io.github.benas.randombeans.api.EnhancedRandom
 import spock.lang.Specification
 
+import static com.example.ms.card.exception.ExceptionConstants.CARD_NOT_FOUND_CODE
 import static com.example.ms.card.mapper.CardMapper.CARD_MAPPER
 import static com.example.ms.card.model.enums.CardStatus.ACTIVE
 
@@ -63,13 +65,17 @@ class CardServiceImplTest extends Specification {
         actual == expected
     }
 
-    /*
+
     def "TestGetCardById error case when card not found" (){
         given:
+        def id = random.nextLong()
 
         when:
         cardService.getCardById(id)
 
         then:
-    }*/
+        1 * cardRepository.findByIdAndStatus(id, ACTIVE) >> Optional.empty()
+        NotFoundException ex = thrown()
+        ex.code == CARD_NOT_FOUND_CODE
+    }
 }
