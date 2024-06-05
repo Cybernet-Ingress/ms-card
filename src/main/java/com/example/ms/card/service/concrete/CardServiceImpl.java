@@ -1,5 +1,6 @@
 package com.example.ms.card.service.concrete;
 
+import com.example.ms.card.annotation.LogExecutionTime;
 import com.example.ms.card.dao.entity.CardEntity;
 import com.example.ms.card.dao.repository.CardRepository;
 import com.example.ms.card.exception.NotFoundException;
@@ -39,6 +40,7 @@ public class CardServiceImpl implements CardService {
         return CARD_MAPPER.toCardResponseDto(cardEntity);
     }
 
+    @LogExecutionTime
     @Override
     public List<CardResponseDto> getCardsByUsedId(Long userId){
         var listCards = cardRepository.findAllByUserIdAndStatus(userId, CardStatus.ACTIVE);
