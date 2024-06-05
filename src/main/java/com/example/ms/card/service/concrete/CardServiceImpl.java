@@ -8,6 +8,7 @@ import com.example.ms.card.dao.repository.CardRepository;
 import com.example.ms.card.exception.NotFoundException;
 import com.example.ms.card.model.request.CardRequestDto;
 import com.example.ms.card.model.response.CardResponseDto;
+import com.example.ms.card.model.response.GetCardsResponseDto;
 import com.example.ms.card.service.abstraction.CardService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -58,14 +59,14 @@ public class CardServiceImpl implements CardService {
     @LogDto
     @LogExecutionTime
     @Override
-    public List<CardResponseDto> getCardsByUserId(Long userId){
+    public List<GetCardsResponseDto> getCardsByUserId(Long userId){
         if(!userClient.getUser(userId)){
             throw new NotFoundException(USER_NOT_FOUND_CODE, String.format(USER_NOT_FOUND_MESSAGE, userId));
         }
 
         var listCards = cardRepository.findAllByUserIdAndStatus(userId, ACTIVE);
         return listCards.stream()
-                .map(CARD_MAPPER::toCardResponseDto)
+                .map(CARD_MAPPER::toGetCardsResponseDto)
                 .collect(Collectors.toList());
     }
 

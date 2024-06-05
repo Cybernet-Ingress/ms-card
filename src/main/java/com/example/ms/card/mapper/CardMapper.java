@@ -3,6 +3,7 @@ package com.example.ms.card.mapper;
 import com.example.ms.card.dao.entity.CardEntity;
 import com.example.ms.card.model.request.CardRequestDto;
 import com.example.ms.card.model.response.CardResponseDto;
+import com.example.ms.card.model.response.GetCardsResponseDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -38,6 +39,15 @@ public enum CardMapper {
                 .status(entity.getStatus())
                 .updateDate(entity.getUpdateDate())
                 .userId(entity.getUserId())
+                .build();
+    }
+
+    public GetCardsResponseDto toGetCardsResponseDto(CardEntity entity){
+        return GetCardsResponseDto.builder()
+                .id(entity.getId())
+                .pan(entity.getPan())
+                .balance(entity.getBalance())
+                .type(entity.getType())
                 .build();
     }
 }

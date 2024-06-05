@@ -6,6 +6,7 @@ import com.example.ms.card.dao.entity.CardEntity
 import com.example.ms.card.dao.repository.CardRepository
 import com.example.ms.card.exception.NotFoundException
 import com.example.ms.card.model.request.CardRequestDto
+import com.example.ms.card.model.response.GetCardsResponseDto
 import com.example.ms.card.service.abstraction.CardService
 import com.example.ms.card.service.concrete.CardServiceImpl
 import io.github.benas.randombeans.EnhancedRandomBuilder
@@ -77,5 +78,25 @@ class CardServiceImplTest extends Specification {
         1 * cardRepository.findByIdAndStatus(id, ACTIVE) >> Optional.empty()
         NotFoundException ex = thrown()
         ex.code == CARD_NOT_FOUND_CODE
+    }
+
+    def "TestGetCardsByUserId success case" (){
+        given:
+        def userId = random.nextLong()
+        def expectedList = random.nextObject(List<GetCardsResponseDto>)
+        def expected = expectedList[0]
+
+        when:
+        def actual = cardService.getCardsByUserId(userId)
+
+        then:
+        userClient.getUser(userId)
+        1 * cardRepository.findAllByUserIdAndStatus(userId, ACTIVE) >> List<GetCardsResponseDto>.of()
+        actual.size() == expectedList.size()
+        actual.size() == 0
+        //actual[0].id == expected.id
+        //actual[0].pan == expected.pan
+        //actual[0].balance == expected.balance
+        //actual[0].type == expected.type
     }
 }

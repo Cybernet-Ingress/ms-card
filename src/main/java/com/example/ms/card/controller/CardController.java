@@ -2,6 +2,7 @@ package com.example.ms.card.controller;
 
 import com.example.ms.card.model.request.CardRequestDto;
 import com.example.ms.card.model.response.CardResponseDto;
+import com.example.ms.card.model.response.GetCardsResponseDto;
 import com.example.ms.card.service.abstraction.CardService;
 import jakarta.validation.Valid;
 import lombok.AccessLevel;
@@ -41,7 +42,7 @@ public class CardController {
     }
 
     @GetMapping("/user/{userId}")
-    public List<CardResponseDto> getCardsByUserId(@PathVariable Long userId){
+    public List<GetCardsResponseDto> getCardsByUserId(@PathVariable Long userId){
         return cardService.getCardsByUserId(userId);
     }
 
