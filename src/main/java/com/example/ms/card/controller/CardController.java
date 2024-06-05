@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 @RestController
 @RequiredArgsConstructor
@@ -40,5 +42,11 @@ public class CardController {
     @GetMapping("/user/{userId}")
     public List<CardResponseDto> getCardsByUsedId(@PathVariable Long userId){
         return cardService.getCardsByUsedId(userId);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void deleteCardById(@PathVariable Long id){
+        cardService.deleteCardById(id);
     }
 }

@@ -11,4 +11,6 @@ public interface CardService {
     CardResponseDto getCardById(Long id);
 
     List<CardResponseDto> getCardsByUsedId(Long userId);
+
+    void deleteCardById(Long id);
 }

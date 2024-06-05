@@ -1,5 +1,6 @@
 package com.example.ms.card.service.concrete;
 
+import com.example.ms.card.dao.entity.CardEntity;
 import com.example.ms.card.dao.repository.CardRepository;
 import com.example.ms.card.exception.NotFoundException;
 import com.example.ms.card.model.enums.CardStatus;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,9 +35,8 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public CardResponseDto getCardById(Long id){
-        return cardRepository.findById(id)
-                .map(CARD_MAPPER::toCardResponseDto)
-                .orElseThrow(() -> new NotFoundException(CARD_NOT_FOUND_CODE, String.format(CARD_NOT_FOUND_MESSAGE, id)));
+        var cardEntity = fetchCardIfExists(id);
+        return CARD_MAPPER.toCardResponseDto(cardEntity);
     }
 
     @Override
@@ -44,5 +45,18 @@ public class CardServiceImpl implements CardService {
         return listCards.stream()
                 .map(CARD_MAPPER::toCardResponseDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteCardById(Long id){
+        var cardEntity = fetchCardIfExists(id);
+        cardEntity.setStatus(CardStatus.DELETED);
+        cardEntity.setUpdateDate(LocalDateTime.now());
+        cardRepository.save(cardEntity);
+    }
+
+    private CardEntity fetchCardIfExists(Long id){
+        return cardRepository.findByIdAndStatus(id, CardStatus.ACTIVE)
+                .orElseThrow(() -> new NotFoundException(CARD_NOT_FOUND_CODE, String.format(CARD_NOT_FOUND_MESSAGE, id)));
     }
 }
