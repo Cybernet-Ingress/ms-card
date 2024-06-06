@@ -14,6 +14,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -50,11 +52,13 @@ public class CardEntity implements Serializable {
     @Enumerated(STRING)
     private CardBrand brand;
 
+    @CreationTimestamp
     private LocalDateTime insertDate;
 
     @Enumerated(STRING)
     private CardStatus status;
 
+    @UpdateTimestamp
     private LocalDateTime updateDate;
 
     private Long userId;

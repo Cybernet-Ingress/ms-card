@@ -30,7 +30,7 @@ public class CacheServiceImpl implements CacheService {
 
     @Async
     @Override
-    public void saveCardOfUserToCache(Long userId, CardEntity cardEntity) {
+    public void saveUserCardToCache(Long userId, CardEntity cardEntity) {
         String cacheKey = MS_CARD_USER + userId;
         var newCard = GetCardsResponseDto.builder()
                 .id(cardEntity.getId())

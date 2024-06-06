@@ -5,7 +5,7 @@ import com.example.ms.card.dao.entity.CardEntity;
 public interface CacheService {
     void saveCardToCache(CardEntity cardEntity);
 
-    void saveCardOfUserToCache(Long userId, CardEntity cardEntity);
+    void saveUserCardToCache(Long userId, CardEntity cardEntity);
 
     <T> T getFromCache(String key);
 

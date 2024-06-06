@@ -18,9 +18,9 @@ public class DtoLogger {
     public Object elapsedTimeLogger(ProceedingJoinPoint jp){
         Object[] args = jp.getArgs();
         String methodName = jp.getSignature().getName();
-        log.info(">> requestDto of {}() is {}", methodName, Arrays.toString(args));
+        log.info(">> ActionLog.elapsedTimeLogger requestDto of {}() is {}", methodName, Arrays.toString(args));
         var result = jp.proceed();
-        log.info("<< responseDto of {}() is {}", jp.getSignature().getName(), result);
+        log.info("<< ActionLog.elapsedTimeLogger responseDto of {}() is {}", jp.getSignature().getName(), result);
         return result;
     }
 }

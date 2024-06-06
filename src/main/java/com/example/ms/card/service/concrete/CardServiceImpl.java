@@ -52,7 +52,7 @@ public class CardServiceImpl implements CardService {
         var newCardEntity = CARD_MAPPER.buildCardEntity(userId, requestDto);
         newCardEntity = cardRepository.save(newCardEntity);
         cacheService.saveCardToCache(newCardEntity);
-        cacheService.saveCardOfUserToCache(userId, newCardEntity);
+        cacheService.saveUserCardToCache(userId, newCardEntity);
         return CARD_MAPPER.toCardResponseDto(newCardEntity);
     }
 

@@ -6,7 +6,6 @@ import com.example.ms.card.model.response.CardResponseDto;
 import com.example.ms.card.model.response.GetCardsResponseDto;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import static com.example.ms.card.model.enums.CardStatus.ACTIVE;
 
@@ -20,9 +19,7 @@ public enum CardMapper {
                 .balance(BigDecimal.ZERO)
                 .type(requestDto.getType())
                 .brand(requestDto.getBrand())
-                .insertDate(LocalDateTime.now())
                 .status(ACTIVE)
-                .updateDate(LocalDateTime.now())
                 .userId(userId)
                 .build();
     }
