@@ -26,7 +26,7 @@ databaseChangeLog:
                   type: varchar(64)
                   constraints:
                     nullable: false
-                  remarks: card_holder of a card
+                  remarks: card holder of a card
               - column:
                   name: balance
                   type: numeric(16,2)
@@ -42,17 +42,17 @@ databaseChangeLog:
                   remarks: type of a card (DEBIT, CREDIT, PREPAID, VIRTUAL, GIFT)
               - column:
                   name: brand
-                  type: varchar(32)
+                  type: varchar(16)
                   constraints:
                     nullable: false
                   remarks: brand of a card (VISA, MAESTRO, MASTERCARD, AMERICAN, EXPRESS, DISCOVER)
               - column:
-                  name: insert_date
+                  name: created_at
                   type: timestamp
                   defaultValue: now()
                   constraints:
                     nullable: false
-                  remarks: insertion time of a card
+                  remarks: creation time of a card
               - column:
                   name: status
                   type: varchar(16)
@@ -61,7 +61,7 @@ databaseChangeLog:
                     nullable: false
                   remarks: status of a card (ACTIVE, BLOCKED, STOLEN, DELETED)
               - column:
-                  name: update_date
+                  name: updated_at
                   type: timestamp
                   defaultValue: now()
                   constraints:

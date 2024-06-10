@@ -15,9 +15,3 @@ spring:
 redis:
   server:
     urls: ${redis.url}
-
-# feignClient
-ms:
-  user:
-    base:
-      url: ${ms_user_base_url}

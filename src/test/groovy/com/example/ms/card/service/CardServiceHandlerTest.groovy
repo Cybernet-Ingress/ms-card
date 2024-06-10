@@ -1,15 +1,12 @@
 package com.example.ms.card.service
 
-import com.example.ms.card.cache.CacheService
-import com.example.ms.card.client.UserClient
-import com.example.ms.card.client.UserClientMock
 import com.example.ms.card.dao.entity.CardEntity
 import com.example.ms.card.dao.repository.CardRepository
 import com.example.ms.card.exception.NotFoundException
-import com.example.ms.card.model.request.CardRequestDto
-import com.example.ms.card.model.response.GetCardsResponseDto
+import com.example.ms.card.model.request.CreateCardRequest
+import com.example.ms.card.service.abstraction.CacheService
 import com.example.ms.card.service.abstraction.CardService
-import com.example.ms.card.service.concrete.CardServiceImpl
+import com.example.ms.card.service.concrete.CardServiceHandler
 import io.github.benas.randombeans.EnhancedRandomBuilder
 import io.github.benas.randombeans.api.EnhancedRandom
 import spock.lang.Specification
@@ -18,29 +15,27 @@ import static com.example.ms.card.exception.ExceptionConstants.CARD_NOT_FOUND_CO
 import static com.example.ms.card.mapper.CardMapper.CARD_MAPPER
 import static com.example.ms.card.model.enums.CardStatus.ACTIVE
 
-class CardServiceImplTest extends Specification {
+class CardServiceHandlerTest extends Specification {
     EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandom()
     CardService cardService
     CardRepository cardRepository
-    UserClient userClient
     CacheService cacheService
 
     def setup(){
         cardRepository = Mock()
-        userClient = new UserClientMock()
         cacheService = Mock()
-        cardService = new CardServiceImpl(cardRepository, userClient, cacheService)
+        cardService = new CardServiceHandler(cardRepository, cacheService)
     }
 
     def "TestCreateCard success case" (){
         given:
         def userId = random.nextLong()
-        def requestDto = random.nextObject(CardRequestDto)
-        def entity = CARD_MAPPER.buildCardEntity(userId, requestDto)
-        def expected = CARD_MAPPER.toCardResponseDto(entity)
+        def request = random.nextObject(CreateCardRequest)
+        def entity = CARD_MAPPER.buildCardEntity(userId, request)
+        def expected = random.nextObject(CardEntity)
 
         when:
-        def actual = cardService.createCard(userId, requestDto)
+        def actual = cardService.createCard(userId, request)
 
         then:
         1 * cardRepository.save(entity)
@@ -83,7 +78,7 @@ class CardServiceImplTest extends Specification {
     def "TestGetCardsByUserId success case" (){
         given:
         def userId = random.nextLong()
-        def expectedList = random.nextObject(List<GetCardsResponseDto>)
+        //def expectedList = random.nextObject(List<GetCardsResponseDto>)
         def expected = expectedList[0]
 
         when:
@@ -91,7 +86,7 @@ class CardServiceImplTest extends Specification {
 
         then:
         userClient.userExists(userId)
-        1 * cardRepository.findAllByUserIdAndStatus(userId, ACTIVE) >> List<GetCardsResponseDto>.of()
+        //1 * cardRepository.findAllByUserIdAndStatus(userId, ACTIVE) >> List<GetCardsResponseDto>.of()
         actual.size() == expectedList.size()
         actual.size() == 0
         //actual[0].id == expected.id

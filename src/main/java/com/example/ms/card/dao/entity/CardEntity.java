@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -24,6 +25,7 @@ import java.util.Objects;
 
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.IDENTITY;
+import static lombok.AccessLevel.PRIVATE;
 
 @Getter
 @Setter
@@ -31,37 +33,44 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Entity
 @Table(name = "cards")
-@ToString
+@ToString(of = {"id", "status", "userId"})
 @Builder
-public class CardEntity implements Serializable {
-    private static final long serialVersionUID  = 8049606725L;
+@FieldDefaults(level = PRIVATE)
+public class CardEntity implements Comparable<CardEntity>, Serializable {
+    static final long serialVersionUID  = 8049606724L;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long id;
+    Long id;
 
-    private String pan;
+    String pan;
 
-    private String cardHolder;
+    String cardHolder;
 
-    private BigDecimal balance;
-
-    @Enumerated(STRING)
-    private CardType type;
+    BigDecimal balance;
 
     @Enumerated(STRING)
-    private CardBrand brand;
+    CardType type;
+
+    @Enumerated(STRING)
+    CardBrand brand;
 
     @CreationTimestamp
-    private LocalDateTime insertDate;
+    LocalDateTime createdAt;
 
     @Enumerated(STRING)
-    private CardStatus status;
+    CardStatus status;
 
     @UpdateTimestamp
-    private LocalDateTime updateDate;
+    LocalDateTime updatedAt;
 
-    private Long userId;
+    Long userId;
+
+    // Cannot invoke "java.time.LocalDateTime.compareTo(java.time.chrono.ChronoLocalDateTime)" because "this.createdAt" is null
+    @Override
+    public int compareTo(CardEntity other) {
+        return this.createdAt.compareTo(other.getCreatedAt());
+    }
 
     @Override
     public boolean equals(Object o) {

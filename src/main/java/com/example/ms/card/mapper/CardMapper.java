@@ -1,50 +1,43 @@
 package com.example.ms.card.mapper;
 
 import com.example.ms.card.dao.entity.CardEntity;
-import com.example.ms.card.model.request.CardRequestDto;
-import com.example.ms.card.model.response.CardResponseDto;
-import com.example.ms.card.model.response.GetCardsResponseDto;
+import com.example.ms.card.model.request.CreateCardRequest;
+import com.example.ms.card.model.response.CardResponse;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import static com.example.ms.card.model.enums.CardStatus.ACTIVE;
 
 public enum CardMapper {
     CARD_MAPPER;
 
-    public CardEntity buildCardEntity(Long userId, CardRequestDto requestDto){
+    public CardEntity buildCardEntity(Long userId, CreateCardRequest request){
         return CardEntity.builder()
-                .pan(requestDto.getPan())
-                .cardHolder(requestDto.getCardHolder())
+                .pan(request.getPan())
+                .cardHolder(request.getCardHolder())
                 .balance(BigDecimal.ZERO)
-                .type(requestDto.getType())
-                .brand(requestDto.getBrand())
+                .type(request.getType())
+                .brand(request.getBrand())
+                .createdAt(LocalDateTime.now())
                 .status(ACTIVE)
+                .updatedAt(LocalDateTime.now())
                 .userId(userId)
                 .build();
     }
 
-    public CardResponseDto toCardResponseDto(CardEntity entity){
-        return CardResponseDto.builder()
+    public CardResponse toCardResponseDto(CardEntity entity){
+        return CardResponse.builder()
                 .id(entity.getId())
                 .pan(entity.getPan())
                 .cardHolder(entity.getCardHolder())
                 .balance(entity.getBalance())
                 .type(entity.getType())
                 .brand(entity.getBrand())
-                .insertDate(entity.getInsertDate())
+                .createdAt(entity.getCreatedAt())
                 .status(entity.getStatus())
-                .updateDate(entity.getUpdateDate())
+                .updatedAt(entity.getUpdatedAt())
                 .userId(entity.getUserId())
-                .build();
-    }
-
-    public GetCardsResponseDto toGetCardsResponseDto(CardEntity entity){
-        return GetCardsResponseDto.builder()
-                .id(entity.getId())
-                .pan(entity.getPan())
-                .balance(entity.getBalance())
-                .type(entity.getType())
                 .build();
     }
 }

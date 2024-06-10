@@ -1,21 +1,27 @@
 package com.example.ms.card.service.abstraction;
 
-import com.example.ms.card.model.request.CardRequestDto;
-import com.example.ms.card.model.response.CardResponseDto;
-import com.example.ms.card.model.response.GetCardsResponseDto;
+import com.example.ms.card.model.enums.CardStatus;
+import com.example.ms.card.model.request.CreateCardRequest;
+import com.example.ms.card.model.response.CardResponse;
 
-import java.util.List;
+import java.util.Set;
 
 public interface CardService {
-    CardResponseDto createCard(Long userId, CardRequestDto requestDto);
+    CardResponse createCard(Long userId, CreateCardRequest request);
 
-    CardResponseDto getCardById(Long id);
+    CardResponse getCardById(Long id);
 
-    List<GetCardsResponseDto> getCardsByUserId(Long userId);
+    CardResponse getCardById(Long userId, Long id);
 
-    void deleteCardById(Long id);
+    Set<CardResponse> getCardsByUserId(Long userId);
 
-    void updateStolenCard(Long id);
+    Set<CardResponse> getAllCardsByUserId(Long userId);
 
-    void updateBlockedCard(Long id);
+    void deleteCardById(Long userId, Long id);
+
+    void updateCardStatus(Long id, CardStatus status);
+
+    void updateCardStatus(Long userId, Long id, CardStatus status);
+
+    void deleteCacheByUserId(Long userId);
 }

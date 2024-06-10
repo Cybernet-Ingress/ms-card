@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/mscards
+    url: jdbc:postgresql://localhost:5432/mscard
     username: postgres
     password: localdb
 
@@ -14,9 +14,3 @@ spring:
 redis:
   server:
     urls: redis://localhost:6379
-
-#feignClient
-ms:
-  user:
-    base:
-      url: http://localhost:9092/internal/api/v1/users
