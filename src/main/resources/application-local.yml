@@ -1,0 +1,16 @@
+server:
+  port: 8181
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mscard
+    username: postgres
+    password: localdb
+
+  jpa:
+    show-sql: true
+
+redis:
+  server:
+    urls: redis://localhost:6379

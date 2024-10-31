@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: Update Starting Point of Card Sequence
+      author: Rovshan Huseynov
+      changes:
+        - sql:
+            dbms: postgresql
+            sql: |
+              SELECT setval('cards_id_seq', 60);
+
+      remarks: Update Card Sequence

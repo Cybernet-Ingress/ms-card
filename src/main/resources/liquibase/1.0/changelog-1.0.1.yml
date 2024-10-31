@@ -1,0 +1,245 @@
+databaseChangeLog:
+  - changeSet:
+      id: Insert test cards into cards table
+      author: Rovshan Huseynov
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (1, '4203832145087131', 'Chris Brown', 80.77, 'DEBIT', 'MASTERCARD', '2024-04-23 15:32:45', 'ACTIVE', '2024-04-23 15:32:45', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (2, '4203832130173481', 'Michael Wilson', 91.97, 'GIFT', 'VISA', '2024-10-19 07:45:22', 'ACTIVE', '2024-10-19 07:45:22', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (3, '4203832138340279', 'John Wilson', 125.21, 'PREPAID', 'AMERICAN', '2024-05-07 11:22:37', 'DELETED', '2024-05-07 11:22:37', 6);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (4, '4203832181645037', 'Jane Williams', 28.76, 'GIFT', 'AMERICAN', '2024-01-14 21:30:53', 'ACTIVE', '2024-01-14 21:30:53', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (5, '4203832122645037', 'Katie Williams', 189.83, 'CREDIT', 'AMERICAN', '2024-09-03 05:18:09', 'DELETED', '2024-09-03 05:18:09', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (6, '4203832169131917', 'David Williams', 118.65, 'GIFT', 'VISA', '2024-06-29 14:59:32', 'ACTIVE', '2024-06-29 14:59:32', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (7, '4203832195096031', 'David Brown', 127.92, 'DEBIT', 'EXPRESS', '2024-03-08 08:44:41', 'STOLEN', '2024-03-08 08:44:41', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (8, '4203832133948263', 'Katie Williams', 178.73, 'CREDIT', 'MAESTRO', '2024-12-13 13:05:17', 'BLOCKED', '2024-12-13 13:05:17', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (9, '4203832144879196', 'Sarah Jones', 17.06, 'DEBIT', 'DISCOVER', '2024-02-22 23:17:28', 'BLOCKED', '2024-02-22 23:17:28', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (10, '4203832156736527', 'John Brown', 132.97, 'GIFT', 'DISCOVER', '2024-11-01 18:52:46', 'ACTIVE', '2024-11-01 18:52:46', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (11, '4203832149109334', 'John Miller', 123.26, 'CREDIT', 'MAESTRO', '2024-07-16 04:06:55', 'ACTIVE', '2024-07-16 04:06:55', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (12, '4203832158162890', 'Alex Taylor', 107.06, 'GIFT', 'VISA', '2024-08-23 19:37:13', 'STOLEN', '2024-08-23 19:37:13', 5);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (13, '4203832142066030', 'David Davis', 138.32, 'PREPAID', 'AMERICAN', '2024-04-01 10:27:20', 'ACTIVE', '2024-04-01 10:27:20', 1);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (14, '4203832173163742', 'Jane Williams', 25.79, 'VIRTUAL', 'AMERICAN', '2024-10-10 06:12:34', 'ACTIVE', '2024-10-10 06:12:34', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (15, '4203832149477501', 'Michael Brown', 58.95, 'GIFT', 'DISCOVER', '2024-05-18 22:34:45', 'ACTIVE', '2024-05-18 22:34:45', 6);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (16, '4203832196092013', 'Michael Williams', 143.31, 'PREPAID', 'AMERICAN', '2024-01-25 15:48:12', 'ACTIVE', '2024-01-25 15:48:12', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (17, '4203832189222445', 'Sarah Wilson', 98.02, 'GIFT', 'MAESTRO', '2024-09-14 02:30:29', 'ACTIVE', '2024-09-14 02:30:29', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (18, '4203832152280610', 'Katie Wilson', 199.96, 'VIRTUAL', 'MAESTRO', '2024-06-08 17:55:36', 'ACTIVE', '2024-06-08 17:55:36', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (19, '4203832164552928', 'David Miller', 23.94, 'VIRTUAL', 'MASTERCARD', '2024-03-19 05:09:18', 'ACTIVE', '2024-03-19 05:09:18', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (20, '4203832131491457', 'David Brown', 125.08, 'GIFT', 'VISA', '2024-12-24 09:33:50', 'ACTIVE', '2024-12-24 09:33:50', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (21, '4203832157142259', 'Sarah Jones', 174.30, 'VIRTUAL', 'MAESTRO', '2024-02-12 01:21:03', 'ACTIVE', '2024-02-12 01:21:03', 5);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (22, '4203832121734253', 'Sarah Moore', 138.20, 'PREPAID', 'MASTERCARD', '2024-11-21 14:44:29', 'ACTIVE', '2024-11-21 14:44:29', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (23, '4203832160763409', 'Jane Brown', 5.86, 'PREPAID', 'MAESTRO', '2024-07-26 07:50:17', 'ACTIVE', '2024-07-26 07:50:17', 1);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (24, '4203832143566024', 'Chris Smith', 51.13, 'CREDIT', 'VISA', '2024-08-02 11:05:22', 'DELETED', '2024-08-02 11:05:22', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (25, '4203832110476629', 'John Davis', 148.70, 'PREPAID', 'DISCOVER', '2024-06-29 14:59:32', 'ACTIVE', '2024-06-29 14:59:32', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (26, '4203832135113423', 'Laura Brown', 168.60, 'DEBIT', 'MASTERCARD', '2024-03-08 08:44:41', 'ACTIVE', '2024-03-08 08:44:41', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (27, '4203832165671327', 'Jane Davis', 93.66, 'GIFT', 'AMERICAN', '2024-12-13 13:05:17', 'ACTIVE', '2024-12-13 13:05:17', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (28, '4203832113396141', 'Jane Moore', 198.23, 'VIRTUAL', 'MAESTRO', '2024-02-22 23:17:28', 'ACTIVE', '2024-02-22 23:17:28', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (29, '4203832161412919', 'Laura Smith', 108.33, 'GIFT', 'AMERICAN', '2024-11-01 18:52:46', 'ACTIVE', '2024-11-01 18:52:46', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (30, '4203832157560141', 'Alex Smith', 195.29, 'CREDIT', 'AMERICAN', '2024-07-16 04:06:55', 'ACTIVE', '2024-07-16 04:06:55', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (31, '4203832199858532', 'David Johnson', 28.36, 'VIRTUAL', 'MASTERCARD', '2024-08-23 19:37:13', 'ACTIVE', '2024-08-23 19:37:13', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (32, '4203832125463273', 'Michael Davis', 98.43, 'DEBIT', 'EXPRESS', '2024-04-01 10:27:20', 'ACTIVE', '2024-04-01 10:27:20', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (33, '4203832148378899', 'John Moore', 199.91, 'DEBIT', 'MASTERCARD', '2024-10-10 06:12:34', 'ACTIVE', '2024-10-10 06:12:34', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (34, '4203832116635274', 'Chris Wilson', 99.63, 'DEBIT', 'VISA', '2024-05-18 22:34:45', 'ACTIVE', '2024-05-18 22:34:45', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (35, '4203832193510416', 'John Wilson', 20.69, 'VIRTUAL', 'AMERICAN', '2024-01-25 15:48:12', 'ACTIVE', '2024-01-25 15:48:12', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (36, '4203832167996212', 'Sarah Smith', 6.95, 'PREPAID', 'EXPRESS', '2024-09-14 02:30:29', 'ACTIVE', '2024-09-14 02:30:29', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (37, '4203832171470966', 'Jane Miller', 64.10, 'DEBIT', 'MASTERCARD', '2024-06-08 17:55:36', 'ACTIVE', '2024-06-08 17:55:36', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (38, '4203832129012827', 'David Moore', 157.10, 'PREPAID', 'MASTERCARD', '2024-03-19 05:09:18', 'ACTIVE', '2024-03-19 05:09:18', 1);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (39, '4203832184230793', 'Chris Smith', 55.05, 'VIRTUAL', 'DISCOVER', '2024-12-24 09:33:50', 'ACTIVE', '2024-12-24 09:33:50', 3);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (40, '4203832148727042', 'Sarah Wilson', 20.02, 'DEBIT', 'EXPRESS', '2024-06-08 17:55:36', 'ACTIVE', '2024-06-08 17:55:36', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (41, '4203832177601378', 'Jane Miller', 115.05, 'CREDIT', 'MASTERCARD', '2024-03-19 05:09:18', 'ACTIVE', '2024-03-19 05:09:18', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (42, '4203832129219662', 'Chris Smith', 73.46, 'DEBIT', 'VISA', '2024-10-10 06:12:34', 'ACTIVE', '2024-10-10 06:12:34', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (43, '4203832159414798', 'Laura Miller', 189.63, 'DEBIT', 'EXPRESS', '2024-05-18 22:34:45', 'ACTIVE', '2024-05-18 22:34:45', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (44, '4203832194726816', 'John Miller', 107.30, 'GIFT', 'VISA', '2024-11-01 18:52:46', 'ACTIVE', '2024-11-01 18:52:46', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (45, '4203832160952007', 'Sarah Miller', 60.70, 'VIRTUAL', 'AMERICAN', '2024-01-25 15:48:12', 'ACTIVE', '2024-01-25 15:48:12', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (46, '4203832139211225', 'Jane Wilson', 134.54, 'CREDIT', 'EXPRESS', '2024-09-14 02:30:29', 'ACTIVE', '2024-09-14 02:30:29', 5);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (47, '4203832177716775', 'Jane Miller', 129.17, 'DEBIT', 'DISCOVER', '2024-06-08 17:55:36', 'ACTIVE', '2024-06-08 17:55:36', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (48, '4203832121865727', 'Michael Miller', 180.11, 'DEBIT', 'AMERICAN', '2024-03-19 05:09:18', 'ACTIVE', '2024-03-19 05:09:18', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (49, '4203832151098562', 'Katie Smith', 44.32, 'PREPAID', 'MAESTRO', '2024-11-21 14:44:29', 'ACTIVE', '2024-11-21 14:44:29', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (50, '4203832160529978', 'David Jones', 104.17, 'VIRTUAL', 'VISA', '2024-07-26 07:50:17', 'ACTIVE', '2024-07-26 07:50:17', 7);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (51, '4203832195554490', 'Chris Moore', 130.04, 'DEBIT', 'AMERICAN', '2024-08-24 22:13:04', 'ACTIVE', '2024-08-24 22:13:04', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (52, '4203832148212509', 'John Williams', 131.08, 'PREPAID', 'DISCOVER', '2024-04-02 04:22:43', 'ACTIVE', '2024-04-02 04:22:43', 6);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (53, '4203832161216645', 'Sarah Williams', 35.87, 'VIRTUAL', 'VISA', '2024-10-11 14:36:15', 'ACTIVE', '2024-10-11 14:36:15', 10);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (54, '4203832194314987', 'Alex Wilson', 11.51, 'DEBIT', 'MASTERCARD', '2024-05-19 19:27:30', 'ACTIVE', '2024-05-19 19:27:30', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (55, '4203832142967738', 'Chris Brown', 156.96, 'PREPAID', 'EXPRESS', '2024-01-26 17:43:28', 'ACTIVE', '2024-01-26 17:43:28', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (56, '4203832116691727', 'Chris Miller', 150.81, 'VIRTUAL', 'VISA', '2024-09-15 08:59:57', 'ACTIVE', '2024-09-15 08:59:57', 2);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (57, '4203832154126417', 'Alex Williams', 189.66, 'CREDIT', 'VISA', '2024-06-09 21:22:13', 'ACTIVE', '2024-06-09 21:22:13', 4);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (58, '4203832114295359', 'Jane Brown', 31.38, 'VIRTUAL', 'VISA', '2024-03-20 12:33:47', 'ACTIVE', '2024-03-20 12:33:47', 9);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (59, '4203832121632505', 'Sarah Johnson', 65.87, 'GIFT', 'MASTERCARD', '2024-12-25 06:04:32', 'ACTIVE', '2024-12-25 06:04:32', 8);
+        - sql:
+            sql: |
+              INSERT INTO public.cards (id, pan, card_holder, balance, type, brand, created_at, status, updated_at, user_id)
+              VALUES (60, '4203832129481262', 'Emily Davis', 153.88, 'GIFT', 'MAESTRO', '2024-02-13 22:37:09', 'ACTIVE', '2024-02-13 22:37:09', 7);

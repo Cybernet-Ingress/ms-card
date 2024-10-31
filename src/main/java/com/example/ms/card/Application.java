@@ -1,12 +1,12 @@
-package com.example.mscard;
+package com.example.ms.card;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsCardApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(MsCardApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
